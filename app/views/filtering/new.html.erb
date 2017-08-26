@@ -1,0 +1,61 @@
+<h2 style="text-align:center; margin-bottom:5%">설문 정보 입력</h2>
+
+<%= simple_form_for @filtering, input_html: { class: 'form_class'}, :url => '/filtering/create' do |f| %>
+
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-9 col-md-6 col-lg-5 col-centered">
+    <form name="filter" class="new_filtering" id="new_filtering_" action="filtering" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;"/><input type="hidden" name="authenticity_token" value="7136xL+K8gQcjQKzRjXOEmwYFDxxXfgZy9Jk69WUHfFY3hNDp+kEFdcUkPnljx30ydK6ZeCv9JIykWvYyFV3Pw=="/>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <label for="filtering_좋아하는 사이트">좋아하는 사이트</label>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+        <select class="form-control" name="filtering[service_provider]" id="filtering_service_provider">
+          <option value="Youtube">Youtube</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Instagram">Instagram</option>
+          <option value="NETFLIX">NETFLIX</option>
+          <option value="oksusu">oksusu</option>
+          <option value="Naver TV캐스트">Naver TV캐스트</option>
+          <option value="Daum TV팟">Daum TV팟</option>
+          <option value="afreeca TV">afreeca TV</option>
+          <option value="Twitch">Twitch</option>
+        </select>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <label for="filtering_시청 등급">시청 등급</label>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+        <select class="form-control" name="filtering[degree]" id="filtering_degree">
+          <option value="0">전체관람가</option>
+          <option value="12">12세 이상 관람가</option>
+          <option value="15">15세 이상 관람가</option>
+          <option value="19">청소년관람불가</option>
+        </select>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered" style="padding-right: 0px;">
+        <label id="view_price" for="filtering_시청 가격">시청 가격</label>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+        <input min="0" max="30000" step="1000" type="range" name="filtering[price]" id="filtering_price"/>
+      </div>
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified">저장
+        <span class="glyphicon glyphicon-floppy-disk" style="vertical-align: text-top;"></span>
+      </button>
+    </form>
+  </div>
+</div>
+<script>
+  var price = document.getElementById("filtering_price");
+  var label = document.getElementById("view_price");
+  price.addEventListener("input", function () {
+    label.innerHTML = "시청 가격: &nbsp;" + price.value + "원";
+  }, false);
+  price.addEventListener("change", function () {
+    label.innerHTML = "시청 가격: &nbsp;" + price.value + "원";
+  }, false);
+  (label.onload = function () {
+    label.innerHTML = "시청 가격: &nbsp;" + price.value + "원";
+  })();
+</script>
+<% end %>

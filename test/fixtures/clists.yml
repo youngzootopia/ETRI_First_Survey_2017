@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  program_name: MyString
+  episode_num: 1
+  video_url: MyString
+  video_file_name: MyString
+  video_thumb: MyString
+  fps: 1.5
+  register_date_time: 2017-08-09 16:53:03
+  last_saved_date_time: 2017-08-09 16:53:03
+  tag_status: 1
+  user: MyString
+  program_name_kor: MyString
+
+two:
+  category: MyString
+  program_name: MyString
+  episode_num: 1
+  video_url: MyString
+  video_file_name: MyString
+  video_thumb: MyString
+  fps: 1.5
+  register_date_time: 2017-08-09 16:53:03
+  last_saved_date_time: 2017-08-09 16:53:03
+  tag_status: 1
+  user: MyString
+  program_name_kor: MyString

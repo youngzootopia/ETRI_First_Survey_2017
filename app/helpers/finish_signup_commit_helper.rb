@@ -1,0 +1,2 @@
+module FinishSignupCommitHelper
+end

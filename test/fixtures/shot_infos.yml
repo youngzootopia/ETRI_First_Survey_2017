@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clist: one
+  clist_id: 1
+  shot_num: 1
+  start_frame: 1.5
+  end_frame: 1.5
+  thumb_url: MyString
+
+two:
+  clist: two
+  clist_id: 1
+  shot_num: 1
+  start_frame: 1.5
+  end_frame: 1.5
+  thumb_url: MyString

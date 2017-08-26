@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  clist: one
+  shot_info: one
+  file_name: MyString
+  preference: 1.5
+  reason: MyString
+
+two:
+  user: two
+  clist: two
+  shot_info: two
+  file_name: MyString
+  preference: 1.5
+  reason: MyString

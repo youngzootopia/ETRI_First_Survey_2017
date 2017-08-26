@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  service_provider: MyString
+  degree: MyString
+  price: 
+
+two:
+  user: two
+  service_provider: MyString
+  degree: MyString
+  price: 
