@@ -2,6 +2,15 @@ class PreferenceController < ApplicationController
   # for InvalidAuthenticityToken
   protect_from_forgery with: :exceptions
 
+  def get_guide
+    user = User.find(current_user.id)
+    preferenceSurveys = user.PreferenceSurveys
+
+    unless preferenceSurveys.empty?
+      render 'get_html'
+    end
+  end
+
   def get_html
     if current_user.nil?
       redirect_to '/'

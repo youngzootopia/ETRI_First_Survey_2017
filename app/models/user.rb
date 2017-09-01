@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :PreferenceSurveys
   has_many :StartQuerys
   has_many :OtherQuerys
+  has_many :Stories
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     # user, idnetity가 nil 검사.

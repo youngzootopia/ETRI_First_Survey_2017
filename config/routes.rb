@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'preference/get_html'
-
   get 'preference/get_data'
-
   get 'preference/survey_save'
 
   # index 페이지
@@ -13,7 +11,6 @@ Rails.application.routes.draw do
   get 'home/finish_signup'
   get 'home/finish_signup_non_email'
   post 'home/finish_signup_commit'
-
 
   devise_for :users, :controllers => { omniauth_callbacks: 'user/omniauth_callbacks'}
 

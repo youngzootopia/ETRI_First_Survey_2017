@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824030841) do
+ActiveRecord::Schema.define(version: 20170901035503) do
 
   create_table "filterings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(version: 20170824030841) do
     t.index ["user_id"], name: "index_start_queries_on_user_id"
   end
 
+  create_table "start_query_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "start_query_id"
+    t.bigint "shot_id"
+    t.string "tag_desc"
+    t.integer "tag_id"
+    t.integer "tag_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shot_id"], name: "index_start_query_tags_on_shot_id"
+    t.index ["start_query_id"], name: "index_start_query_tags_on_start_query_id"
+  end
+
   create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "start_query_id"
@@ -134,8 +146,10 @@ ActiveRecord::Schema.define(version: 20170824030841) do
   add_foreign_key "preference_surveys", "media", column: "media_id"
   add_foreign_key "preference_surveys", "shots"
   add_foreign_key "preference_surveys", "users"
-  add_foreign_key "shots", "media", column: "media_id", on_delete: :cascade
+  add_foreign_key "shots", "media", column: "media_id"
   add_foreign_key "start_queries", "users"
+  add_foreign_key "start_query_tags", "shots"
+  add_foreign_key "start_query_tags", "start_queries"
   add_foreign_key "stories", "start_queries"
   add_foreign_key "stories", "users"
 end

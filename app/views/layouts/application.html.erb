@@ -14,8 +14,7 @@
     <%= stylesheet_link_tag    'custom/set_grid', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'custom/jquery-ui-1.12.1.custom/jquery-ui', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
   </head>
 
   <body>
@@ -42,11 +41,11 @@
 			<div class="collapse navbar-collapse" id="myNavbar" >
 			  <ul class="nav navbar-nav">
 				<li><a href="/">홈</a></li>
-        <li><a href="/preference/get_html">1차 설문</a></li>
-        <!--<li><a href="/second">2차 설문</a></li> -->
-        <li><a href="/">진행상황&amp;문의</a></li>
         <% unless current_user.nil? %>
-          <li><%= link_to "로그아웃", destroy_user_session_path, method: "delete" %></li>
+          <li><a href="/preference/get_guide">1차 설문</a></li>
+          <!--<li><a href="/second">2차 설문</a></li> -->
+          <li><a href="/">진행상황 &amp; 문의</a></li>
+          <li><%= link_to "로그아웃", destroy_user_session_path %></li>
         <% end %>
 			  </ul>
 			</div>

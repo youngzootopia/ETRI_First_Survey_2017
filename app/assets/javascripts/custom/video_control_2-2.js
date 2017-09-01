@@ -330,7 +330,7 @@ function Class_Modal(vid){
 		//modal on/off
 		//modal show/hide handler
 		myModal.on('shown.bs.modal',function(e){
-				//console.log(e.type);
+				// console.log("open modal");
 				open_state=true;
 				header_height=modal_header.outerHeight();
 				footer_height=modal_footer.outerHeight();
@@ -364,7 +364,7 @@ function Class_SurveyForm(){
 	var loading_bar=new Class_ProgressBar();
 
 	var video_form=new Class_VideoForm();
-
+	debugger;
 	var myModal=new Class_Modal(video_form);
 
 	var myPlayer=videojs(vid_tag_id);
@@ -494,8 +494,19 @@ function Class_SurveyForm(){
 		switch(myModal.get_state()){
 			case '5w1h_2': {}
 			case '5w1h_1': {
-					params={
-						WHO:$("input[list=Who]").val(),
+				var survey = new Object();
+				survey.WHO=$("input[list=Who]").val(),
+				survey.WHATACTION=$("input[list=WhatAction]").val();
+				survey.WHATOBJECT=$("input[list=WhatObject]").val();
+				survey.WHERE=$("input[list=Where]").val();
+				survey.WHEN= $("input[list=When]").val();
+				survey.WHY= $("input[list=Why]").val();
+				survey.HOW= $("input[list=How]").val();
+				survey.VISUAL= $("input[list=Visual]").val();
+				survey.AUDIO= $("input[list=Audio]").val();
+				survey.SEQ= 1;
+
+					/*	WHO:$("input[list=Who]").val(),
 						WHATACTION:$("input[list=WhatAction]").val(),
 						WHATOBJECT:$("input[list=WhatObject]").val(),
 						WHERE:$("input[list=Where]").val(),
@@ -505,9 +516,9 @@ function Class_SurveyForm(){
 						VISUAL:$("input[list=Visual]").val(),
 						AUDIO:$("input[list=Audio]").val(),
 						SEQ:1,
-						type:'json'
-					};
-					str=JSON.stringify(params);
+						type:'json'*/
+
+					str=JSON.stringify(survey);
 					break;
 				}
 			case 'query_1': {
@@ -595,9 +606,11 @@ function Class_SurveyForm(){
 
 		console.log(str);
 		//send query info
+
+		console.log("123");
 		$.ajax({
 				//type: 'GET',
-				type: ((myModal.get_state().indexOf('5w1h')!=-1)?'GET':'POST'),
+				type: ((myModal.get_state().indexOf('5w1h')!=-1)?'POST':'POST'),
 				//url: '/get_second_infomation_first',
 				url: ((myModal.get_state().indexOf('_1')!=-1)?'/story/get_data':'/story/get_data'),
 				data: {data:str},
@@ -611,6 +624,7 @@ function Class_SurveyForm(){
 							start_list=data[0].startTimeList;
 							totalScoreList=data[0].totalScoreList;
 
+							console.log("111asdf");
 							var i=0;
 							for (i in data[0].videoURLList){
 								data[0].videoURLList[i]='/assets/'+data[0].videoURLList[i];
@@ -782,11 +796,9 @@ function Class_SurveyForm(){
 		//console.log(myModal.get_equal());
 		//console.log(myModal.get_coincidence());
 
-
 		next_btn.click(query_5w1h_1);
 		myModal.set_state('5w1h_1');
 	};
-
 
 	init();
 }

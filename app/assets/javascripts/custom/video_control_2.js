@@ -488,6 +488,7 @@ $(document).ready(function(){
 
 	console.log('ready');
 	html_body=$('html, body');
+	debugger;
 	survey_form=new Class_SurveyForm();
 	survey_form.get_survey_info();
 	console.log('end');

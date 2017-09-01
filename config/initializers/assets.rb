@@ -50,8 +50,10 @@ Rails.application.config.assets.precompile += %w( custom/no-kor.js )
 Rails.application.config.assets.precompile += %w( custom/video_js/video.js )
 Rails.application.config.assets.precompile += %w( custom/video_control_2.js )
 Rails.application.config.assets.precompile += %w( custom/video_control_2-2.js )
+Rails.application.config.assets.precompile += %w( custom/video_control_test.js )
 Rails.application.config.assets.precompile += %w( custom/jquery.rateyo.min.js )
 
 # for second survey
 Rails.application.config.assets.precompile += %w( custom/image_picker/image-picker.min.js )
+Rails.application.config.assets.precompile += %w( custom/video_control_first.js )
 Rails.application.config.assets.precompile += %w( custom/image_picker/image-picker.min.css )
